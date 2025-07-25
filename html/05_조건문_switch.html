@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch, Case, Default 실습 예제</title>
+    <link rel="stylesheet" href="../css/05_조건문_switch.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>계절 자판기</h2>
+      <p>월을 선택하면 해당하는 계절을 알려드립니다.</p>
+
+      <select name="" id="monthSelect">
+        <option value="">월을 선택하세요</option>
+        <option value="1">1월</option>
+        <option value="2">2월</option>
+        <option value="3">3월</option>
+        <option value="4">4월</option>
+        <option value="5">5월</option>
+        <option value="6">6월</option>
+        <option value="7">7월</option>
+        <option value="8">8월</option>
+        <option value="9">9월</option>
+        <option value="10">10월</option>
+        <option value="11">11월</option>
+        <option value="12">12월</option>
+      </select>
+      <button onclick="계절체크기능()">계절 확인</button>
+      <div id="seasonResult" class="result"></div>
+      <script>
+        //계절 판별 함수
+        function 계절체크기능() {
+          const month = document.getElementById("monthSelect").value;
+          const resultDiv = document.getElementById("seasonResult");
+
+          // 선택한 계절을 보여주기
+          switch (month) {
+            case "3":
+            case "4":
+            case "5":
+              alert("봄입니다.");
+              resultDiv.innerText = "봄입니다.";
+              break;
+            case "6":
+            case "7":
+            case "8":
+              alert("여름입니다.");
+              resultDiv.innerText = "여름입니다.";
+              break;
+            case "9":
+            case "10":
+            case "11":
+              alert("가을입니다.");
+              resultDiv.innerText = "가을입니다.";
+              break;
+            case "12":
+            case "1":
+            case "2":
+              alert("겨울입니다.");
+              resultDiv.innerText = "겨울입니다.";
+              break;
+            default:
+              resultDiv.innerText = "올바른 월을 선택해주세요(1-12월).";
+              break;
+          }
+        }
+      </script>
+    </div>
+
+    <div class="container">
+      <h2>커피 자판기</h2>
+      <p>커피 종류를 선택하면 가격과 설명을 알려드립니다.</p>
+
+      <select id="coffeeSelect">
+        <option value="">커피를 선택하세요.</option>
+        <option value="americano">아메리카노</option>
+        <option value="latte">카페라떼</option>
+        <option value="cappuccino">카푸치노</option>
+        <option value="mocha">카페모카</option>
+        <option value="macchiato">마키아토</option>
+      </select>
+      <button onclick="커피주문기능()">주문하기</button>
+      <div id="coffeeResult" class="result"></div>
+    </div>
+    <script>
+      function 커피주문기능() {
+        const coffee = document.getElementById("coffeeSelect").value;
+        const resultCoffee = document.getElementById("coffeeResult");
+
+        let price, description;
+        switch (coffee) {
+          case "americano":
+            price = "2,000원";
+            description = "깔끔하고 진한 맛의 기본 커피";
+            break;
+          case "latte":
+            price = "3,500원";
+            description = "부드러운 우유 거품이 들어간 커피";
+            break;
+          case "cappuccino":
+            price = "3,800원";
+            description = "진한 에스프레소와 우유 거품의 조화";
+            break;
+          case "mocha":
+            price = "4,200원";
+            description = "달콤한 초콜릿이 들어간 커피";
+            break;
+          case "macchiato":
+            price = "4,000원";
+            description = "카라멜 시럽이 들어간 달콤한 커피";
+            break;
+          default:
+            price = "가격 정보 없음";
+            description = "죄송합니다. 해당 메뉴는 준비되지 않았습니다.";
+            break;
+        }
+
+        resultCoffee.innerHTML = `
+        <pre>☕ ${coffee}
+💰 가격: ${price}
+📝 설명: ${description}</pre>`;
+
+        /*
+            ${} 템플릿 리터럴
+            변수 삽입 문법
+            ES6 부터 제공되는 문법
+            ``(백틱, 역 따옴표) 안에서 사용하고자 하는
+            변수를 작성할 때 ${} 내부에 변수이름 작성
+        
+        */
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문 실습문제</title>
+  </head>
+  <body>
+    <h1>조건문 실습문제</h1>
+
+    <h4>실제 상황 1탄</h4>
+    <p>친구 : OO아, 돈 좀 빌려줘</p>
+    <p>나 : 얼마 필요합니까?</p>
+    <p>
+      친구 :
+      <input type="number" id="input1" /> 원 만 빌려줘
+    </p>
+    <p>나 : 확인해볼게요.</p>
+    <button type="button" onclick="잔액확인하기()">확인하기</button>
+    <script>
+      function 잔액확인하기() {
+        // 1. 친구가 빌려달라는 금액 javaScript에서 확인
+        const money = document.getElementById("input1");
+        // 2. 만약에 친구가 빌려달라는 금액이 5000원 이상이면
+
+        //  잔액이없어서 힘들 것같아.
+        //  5000원 이하면 언제까지 돌려줄 수 있는지 알려줘 ^^ 를 보냄
+        //  (alert) 사용 if - else 문 사용
+        const 잔액 = Number(money.value);
+        if (잔액 >= 5000) {
+          // 5000 원 과 같거나 5000 이상이면
+          alert("잔액이 없어서 힘들 것 같아.^^");
+        } else {
+          alert("언제까지 돌려줄 수 있는지 알려줘 ^^");
+        }
+      }
+    </script>
+    <h4>홀 / 짝 확인하기</h4>
+    <input type="number" id="input2" />
+    <button type="button" onclick="홀짝기능()">확인하기</button>
+
+    <h4>주행비용 계산하기</h4>
+    <p>이동 거리에 따라 주행비용을 계산해주는 프로그램입니다.</p>
+    <p>이동거리 : <input type="number" id="input3" /></p>
+    <button type="button" onclick="주행거리계산기능()">계산하기</button>
+
+    <script src="../js/05_조건문실습.js"></script>
+  </body>
+</html>

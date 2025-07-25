@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화관 티켓 예매 실습</title>
+    <link rel="stylesheet"  href="../css/101_JS실습문2.css"/>
+        <style>
+            /*
+        방법 2가지 존재
+        1. ../css/101_JS실습문2.css
+        2. style 태그 내부에 css 작성하기
+        */
+        </style>
+</head>
+<body>
+    <div class="container">
+        <h4>🎬  영화관에서</h4>
+        
+        <div class="chat-bubble friend">
+            <p><span class="emoji">😎</span><strong>친구:</strong> 야! 오늘 <span class="movie-title">어벤져스</span> 보러 갈래?</p>
+        </div>
+        
+        <div class="chat-bubble me">
+            <p><span class="emoji">🤔</span><strong>나:</strong> 좋아! 몇 명이서 갈 건데?</p>
+        </div>
+        
+        <div class="chat-bubble friend">
+            <p><span class="emoji">🎟️</span><strong>친구:</strong> 
+                <div class="ticket-input">
+                    총 <input type="number" id="peopleCount" placeholder="0" /> 명이서 가자!
+                </div>
+            </p>
+        </div>
+        
+        <div class="chat-bubble me">
+            <p><span class="emoji">💰</span><strong>나:</strong> 알겠어! 예산 확인해볼게!</p>
+        </div>
+        
+        <button type="button" onclick="예산확인하기()">
+            예산 확인하기
+        </button>
+    </div>
+
+    <script src="../js/101_JS실습문제2.js">
+       
+    </script>
+</body>
+</html>

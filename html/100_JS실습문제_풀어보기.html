@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습문제 기초 1탄</title>
+  </head>
+  <body>
+    <h1>실습문제 기초 1탄</h1>
+    <h3>문제 1: 기본 알림창 띄우기</h3>
+    <button type="button" onclick="첫번째함수()">클릭해보세요!</button>
+
+    <h3>문제 2: 텍스트 변경하기</h3>
+    <button type="button" onclick="텍스트변경()">텍스트 바꾸기</button>
+    <div id="메세지영역">여기 텍스트가 바뀔 예정입니다.</div>
+
+    <h3>문제 3: 배경색 변경하기</h3>
+    <button type="button" onclick="배경색변경('pink')">분홍색</button>
+    <button type="button" onclick="배경색변경('lightgreen')">연두색</button>
+    <button type="button" onclick="배경색변경('lightyellow')">노란색</button>
+    <button type="button" onclick="배경색변경('white')">원래색</button>
+
+    <h3>문제 4: 이름 입력받고 인사하기</h3>
+    <input type="text" id="이름입력" placeholder="이름을 입력하세요." />
+    <button type="button" onclick="인사하기()">인사하기</button>
+    <div id="인사결과"></div>
+
+    <h3>문제 5 : 간단한 계산기</h3>
+    <input type="number" id="숫자1" placeholder="첫 번째 숫자" />
+    <input type="number" id="숫자2" placeholder="두 번째 숫자" />
+    <button type="button" onclick="계산하기('+')">더하기</button>
+    <button type="button" onclick="계산하기('-')">빼기</button>
+    <button type="button" onclick="계산하기('*')">곱하기</button>
+    <div id="계산결과"></div>
+
+    <h6>문제 6 : 이미지 크기 조절하기</h6>
+    <img
+      id="조절이미지"
+      src="https://i.namu.wiki/i/dADnIJgMlDTjaoRfC5Mf9EzpE9m0xyxx4U6MKpIDwzX6zhkLcHsetHvdem00_lRLfxyJVmIdVm3ED4k9OBac3Q.webp"
+      alt="샘플 이미지"
+    />
+    <button type="button" onclick="이미지크기조절('100px')">작게</button>
+    <button type="button" onclick="이미지크기조절('200px')">보통</button>
+    <button type="button" onclick="이미지크기조절('300px')">크게</button>
+
+    <h6>문제 6 : 이미지 크기 조절하기(응용편)</h6>
+    <img
+      id="조절이미지2"
+      src="https://i.namu.wiki/i/dADnIJgMlDTjaoRfC5Mf9EzpE9m0xyxx4U6MKpIDwzX6zhkLcHsetHvdem00_lRLfxyJVmIdVm3ED4k9OBac3Q.webp"
+      alt="샘플 이미지"
+    />
+    <button type="button" onclick="이미지크기조절2('100px','300px')">
+      작게
+    </button>
+    <button type="button" onclick="이미지크기조절2('200px','600px')">
+      보통
+    </button>
+    <button type="button" onclick="이미지크기조절2('300px','900px')">
+      크게
+    </button>
+
+    <h3>문제 7 : 글자 스타일 변경하기</h3>
+    <div id="스타일텍스트">이 텍스트의 스타일이 바뀝니다!</div>
+    <button type="button" onclick="글자스타일변경('red', '30px', 'bold')">
+      빨간색 크게
+    </button>
+    <button type="button" onclick="글자스타일변경('blue', '20px', 'normal')">
+      파란색 보통
+    </button>
+    <button type="button" onclick="글자스타일변경('green', '15px', 'italic')">
+      초록색 기울임
+    </button>
+
+    <h4>문제 8 : 현재 시간 보여주기</h4>
+    <button type="button" onclick="시간보여주기()">현재 시간 확인</button>
+    <div id="시간표시"></div>
+
+    <h4>문제 9 : 숨기기 / 보이기 기능</h4>
+    <button type="button" onclick="토글기능()">숨기기/보이기</button>
+    <div id="토글박스">👋 안녕하세요! 저를 숨겨보세요!</div>
+
+    <h4>문제 10: 색상 맞추기 미니게임</h4>
+    <div id="게임문제">🎯 빨간색 버튼을 찾아서 클릭하세요!</div>
+    <button
+      type="button"
+      onclick="게임체크('red')"
+      style="background-color: red"
+    >
+      빨간색
+    </button>
+    <button
+      type="button"
+      onclick="게임체크('blue')"
+      style="background-color: blue"
+    >
+      파란색
+    </button>
+    <button
+      type="button"
+      onclick="게임체크('green')"
+      style="background-color: green"
+    >
+      초록색
+    </button>
+    <div id="게임결과"></div>
+  </body>
+</html>
