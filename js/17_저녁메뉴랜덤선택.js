@@ -57,13 +57,11 @@ function displayMenus() {
 displayMenus(); // 함수를 호출했기 때문에 화면에 메뉴가 뜸.
 
 /* ------------------------------------------------------------------------------- */
-// 랜덤 Math.random 사용해서 메뉴 랜덤으로 선택하기
-
 addBtn.addEventListener("click", function () {
     const newMenu = menuInput.value.trim();
-    if (newMenu.length == 0) {
-        // 1. 빈 값 체크
-        validationMessage.textContent = "메뉴를 입력해주세요";
+    // 1. 빈 값 체크
+    if (newMenu.length === 0) {
+        validationMessage.textContent = "메뉴를 입력해주세요.";
         validationMessage.className = "validation-message error";
         // input 창으로 foucs 맞추기
         // return으로 되돌리기
@@ -114,13 +112,11 @@ menuInput.addEventListener("keyup", (e) => {
     // 만약에 Enter키가 입력됐다면
     if (e.key == "Enter") {
         // 추가하기
-        menus.push(newMenu);
-        menuInput.value = "";
-        validationMessage.textContent = `${newMenu} 메뉴가 추가되었습니다.`;
-        validationMessage.className = "validation-message success";
+        addBtn.click(); // Enter 키 적용되도록 설정
     }
 });
 
+// 랜덤 Math.random 사용해서 메뉴 랜덤으로 선택하기
 // 메뉴 랜덤으로 선택 기능
 selectBtn.addEventListener("click", function () {
     if (menus.length === 0) {

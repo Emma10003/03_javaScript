@@ -162,6 +162,7 @@ btn.addEventListener("click", (e) => {
         e.preventDefault();
         // 원래 click하면 제출하는 걸 전제로 해서 안에 작성한 항목이 사라지는데
         // 이건 제출을 막음
+        // button type이 submit일 때 주로 사용
         return;
     }
 
