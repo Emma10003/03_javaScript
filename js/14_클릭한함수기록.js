@@ -23,6 +23,7 @@ for (let i = 0; i < numbers.length; i++) {
             // addEventListener 앞에 있는 요소 명칭을 직접적으로 작성
 
             위와 같은 형태로 작성 가능
+            
         numbers[i].addEventListener("click", e => { 
             result.textContent += e.target.textContent; 
             }
