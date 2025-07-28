@@ -24,6 +24,7 @@ const regExpId = /^[A-Za-z0-9\-\_]{6,16}$/;
 const regExpName = /^[가-힣]{2,15}$/;
 const regExpPw = /^[A-Za-z\d!@#$%^&*]{8,20}$/;
 
+/* --------------------------------------------------------------------------------------------- */
 /* 아이디 입력 */
 inputId.addEventListener("input", (e) => {
   const valId = e.target.value;
@@ -31,7 +32,7 @@ inputId.addEventListener("input", (e) => {
   // 내부에 아무것도 작성 안 한게 맞다면
   if (valId.trim().length == 0) {
     idResult.textContent = "영어, 숫자, -, _ 6 ~ 16글자 사이로 작성";
-    e.target.addEventListener = "";
+    e.target.value = "";
     idResult.classList.remove("check", "error");
     checklist["inputId"] = false;
     return;
@@ -51,6 +52,7 @@ inputId.addEventListener("input", (e) => {
   }
 });
 
+/* --------------------------------------------------------------------------------------------- */
 /* 비밀번호 입력 */
 inputPw.addEventListener("input", (e) => {
   const valPw = e.target.value;
@@ -59,7 +61,7 @@ inputPw.addEventListener("input", (e) => {
   if (valPw.trim().length == 0) {
     pwResult.textContent =
       "영어 대/소문자, 숫자, 특수문자(! @ # $ % ^ & *) 포함 8 ~ 20글자 사이로 작성";
-    e.target.addEventListener = "";
+    e.target.value = "";
     pwResult.classList.remove("check", "error");
     checkList["inputPw"] = false;
     checkPw기능();
@@ -83,6 +85,7 @@ inputPw.addEventListener("input", (e) => {
   checkPw기능(); // 비밀번호 입력했을 때 비밀번호 확인도 같이 되도록 함수 추가
 });
 
+/* --------------------------------------------------------------------------------------------- */
 /* 비밀번호 확인 기능 함수 */
 function checkPw기능() {
   // trim(): 문자열 좌우에서 공백을 제거하는 메서드(함수=기능)
@@ -113,9 +116,11 @@ function checkPw기능() {
   }
 }
 
+/* --------------------------------------------------------------------------------------------- */
 /* 비밀번호 확인 이벤트 리스너 */
 inputPwCheck.addEventListener("input", checkPw기능);
 
+/* --------------------------------------------------------------------------------------------- */
 /* 이름 유효성 검사 */
 inputName.addEventListener("input", (e) => {
   const valName = e.target.value; // input 에서 소비자가 작성한 값 가져와 담아주기
@@ -144,6 +149,7 @@ inputName.addEventListener("input", (e) => {
   }
 });
 
+/* --------------------------------------------------------------------------------------------- */
 /* 회원가입 버튼 이벤트 리스너 */
 btn.addEventListener("click", (e) => {
   // 모든 checkList 항목이 true인지 확인하고, true가 아니라면 회원가입 불가!!
