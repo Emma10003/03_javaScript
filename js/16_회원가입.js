@@ -159,6 +159,9 @@ btn.addEventListener("click", (e) => {
     if (checkList.inputId == false) {
         alert("아이디가 유효하지 않습니다.");
         inputId.focus();
+        e.preventDefault();
+        // 원래 click하면 제출하는 걸 전제로 해서 안에 작성한 항목이 사라지는데
+        // 이건 제출을 막음
         return;
     }
 
@@ -166,6 +169,7 @@ btn.addEventListener("click", (e) => {
     if (checkList.inputPw == false) {
         alert("비밀번호가 유효하지 않습니다.");
         inputPw.focus();
+        e.preventDefault();
         return;
     }
 
@@ -173,6 +177,7 @@ btn.addEventListener("click", (e) => {
     if (checkList.inputPwCheck == false) {
         alert("비밀번호 확인이 유효하지 않습니다.");
         inputPwCheck.focus();
+        e.preventDefault();
         return;
     }
 
@@ -180,6 +185,7 @@ btn.addEventListener("click", (e) => {
     if (checkList.inputName == false) {
         alert("이름이 유효하지 않습니다.");
         inputName.focus();
+        e.preventDefault();
         return;
     }
 
@@ -188,6 +194,7 @@ btn.addEventListener("click", (e) => {
     const gender = document.querySelector("[name='gender']:checked");
     if (gender == null) {
         alert("성별을 선택해주세요.");
+        e.preventDefault();
         return;
     }
     // 모든 게 true이고 회원가입이 완료되면
