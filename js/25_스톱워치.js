@@ -1,3 +1,5 @@
+// clearInterval, setInterval 위주로 복습하기
+
 const display = document.querySelector("#display");
 const list = document.querySelectorAll("#display >  span");
 const startBtn = document.querySelector("#startBtn");
@@ -27,9 +29,9 @@ startBtn.addEventListener("click", (e) => {
     currInterval = window.setInterval(() => {
         count++; // 1초씩 증가
         output(); // 화면에 시간 출력하는 기능 (실습코드에 있음!)
-    }, 10);  // 10ms
+    }, 10); // 10ms
 
-    e.target.textContent = "PAUSE";  // 카운트 시작 중에 정지하고 싶으면 정지할 수 있도록 버튼 내부 변경
+    e.target.textContent = "PAUSE"; // 카운트 시작 중에 정지하고 싶으면 정지할 수 있도록 버튼 내부 변경
 });
 
 /* 시계 출력 함수 */
@@ -87,5 +89,14 @@ const li = document.createElement("li");
 li.innerText = display.innerText;
 
 #recordContainer 의 첫 번째 자식으로 li 추가
-.append() ... 이용해서 추가
+.append() 할 때 배운 무언가 ... 이용해서 추가
 */
+recordBtn.addEventListener("click", () => {
+    const li = document.createElement("li");
+    // li 요소의 내용으로 #display 에 출력된 시간을 가져와 추가
+    li.innerText = display.innerText;
+
+    recordContainer.prepend(li);
+    // .append() 나 .appendChild() 는 시간이 밑으로 추가되고,
+    // .prepend() 는 시간이 위로 추가됨
+});
