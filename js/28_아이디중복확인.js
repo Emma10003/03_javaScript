@@ -9,7 +9,7 @@ const sendBtn = document.getElementById("send");
 
 sendBtn.addEventListener("click", () => {
     // 팝업창에 입력된 값을 가져오기
-    const inputId = document.getElementById("childInput").value;
+    const childInput = document.getElementById("childInput").value;
     
     opener.document.getElementById("inputId").value = childInput;
     window.close();
