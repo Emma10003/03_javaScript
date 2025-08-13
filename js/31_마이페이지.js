@@ -1,4 +1,7 @@
 $(function () {
+    // 1. 타이머를 중지시키기 위한 변수이름 설정
+    let timerInterval;
+
     // session Storage 에서 로그인 정보 가져오기
     let 세션로그인유저 = sessionStorage.getItem("loggedInUser");
 
@@ -14,11 +17,36 @@ $(function () {
     let user = JSON.parse(세션로그인유저);
     console.log("user : ", user);
 
+    // 2. 타이머 및 자동 로그아웃 기능 시작
+    const sessionDuration = 60000; // 1분 (ms 단위)
+
+    timerInterval = setInterval(function () {
+        const now = new Date().getTime();
+        const loginTime = user.loginTime; // session 내에 저장된 로그인시간 가져오기
+        const elapsedTime = now - loginTime; // 현재시간 - 로그인한시간 = 경과시간
+        const remainingTime = sessionDuration - elapsedTime; // 60000 에서 경과시간 빼면 남은시간.
+
+        if (remainingTime > 0) {
+            // 남은 시간이 존재한다면 초 단위로 변환해서 화면 표시
+            const remainingSeconds = Math.ceil(remainingTime / 1000);
+            // -> 남은 시간의 경우 대부분 소수점 아래 무조건 올림 함수 사용.
+            $("#timer").text(remainingSeconds); // html id="timer"인 요소에 남은시간 표시
+        } else {
+            // 시간이 만료되면 타이밍 중지 및 로그아웃
+            clearInterval(timerInterval); // 기존 타이며 내용 비우기 (변수에 있는 내용 비움)
+            sessionStorage.removeItem("loggedInUser");
+            alert("세션이 만료되어 자동으로 로그아웃 되었습니다.");
+            window.location.href = "31_로그인.html";
+        }
+    }, 1000); // 1초마다 반복시행
+
     // 화면에 사용자 정보 표시
     $("#user-name").text(user.name);
     $("#user-email").text(user.email);
-
-    $("#logout-btn").click(logoutFn);
+    $("#logout-btn").click(function(){
+        clearInterval(timerInterval); // 실행중인 타이머 중지
+        logoutFn(); // 로그아웃 기능 실행
+    });
 });
 
 // 로그아웃 버튼 클릭
