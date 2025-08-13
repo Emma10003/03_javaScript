@@ -30,7 +30,7 @@ $(function () {
             // 남은 시간이 존재한다면 초 단위로 변환해서 화면 표시
             const remainingSeconds = Math.ceil(remainingTime / 1000);
             // -> 남은 시간의 경우 대부분 소수점 아래 무조건 올림 함수 사용.
-            $("#timer").text(remainingSeconds); // html id="timer"인 요소에 남은시간 표시
+            $("#timer").text(`${remainingSeconds}초`); // html id="timer"인 요소에 남은시간 표시
         } else {
             // 시간이 만료되면 타이밍 중지 및 로그아웃
             clearInterval(timerInterval); // 기존 타이며 내용 비우기 (변수에 있는 내용 비움)
@@ -43,7 +43,7 @@ $(function () {
     // 화면에 사용자 정보 표시
     $("#user-name").text(user.name);
     $("#user-email").text(user.email);
-    $("#logout-btn").click(function(){
+    $("#logout-btn").click(function () {
         clearInterval(timerInterval); // 실행중인 타이머 중지
         logoutFn(); // 로그아웃 기능 실행
     });
